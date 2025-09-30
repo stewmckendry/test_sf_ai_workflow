@@ -1,0 +1,7 @@
+This is an example file created as part of AB#2.
+
+The purpose of this file is to demonstrate that the AI workflow is functioning correctly
+and can make changes to the repository based on Azure Boards work items.
+
+Created: 2025-09-30
+Related Work Item: AB#2
