@@ -1,0 +1,122 @@
+<template>
+  <lightning-card title="Expense Tracker" icon-name="standard:currency">
+    <div class="slds-m-around_medium">
+      <!-- Expense List Table -->
+      <div class="slds-m-bottom_medium">
+        <h3 class="slds-text-heading_small slds-m-bottom_small">
+          Recent Expenses
+        </h3>
+        <template if:true={expenses.data}>
+          <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+            <thead>
+              <tr class="slds-line-height_reset">
+                <th scope="col">
+                  <div class="slds-truncate" title="Expense Name">
+                    Expense Name
+                  </div>
+                </th>
+                <th scope="col">
+                  <div class="slds-truncate" title="Amount">Amount</div>
+                </th>
+                <th scope="col">
+                  <div class="slds-truncate" title="Date">Date</div>
+                </th>
+                <th scope="col">
+                  <div class="slds-truncate" title="Category">Category</div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <template for:each={expenses.data} for:item="expense">
+                <tr key={expense.Id} class="slds-hint-parent">
+                  <td data-label="Expense Name">
+                    <div class="slds-truncate" title={expense.Name}>
+                      {expense.Name}
+                    </div>
+                  </td>
+                  <td data-label="Amount">
+                    <div class="slds-truncate">
+                      <lightning-formatted-number
+                        value={expense.Amount__c}
+                        format-style="currency"
+                        currency-code="USD"
+                      ></lightning-formatted-number>
+                    </div>
+                  </td>
+                  <td data-label="Date">
+                    <div class="slds-truncate">
+                      <lightning-formatted-date-time
+                        value={expense.Date__c}
+                        year="numeric"
+                        month="numeric"
+                        day="numeric"
+                      ></lightning-formatted-date-time>
+                    </div>
+                  </td>
+                  <td data-label="Category">
+                    <div class="slds-truncate" title={expense.Category__c}>
+                      {expense.Category__c}
+                    </div>
+                  </td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+        </template>
+        <template if:true={expenses.error}>
+          <p class="slds-text-color_error">
+            Error loading expenses: {expenses.error}
+          </p>
+        </template>
+      </div>
+
+      <!-- Add Expense Form -->
+      <div class="slds-box slds-theme_shade">
+        <h3 class="slds-text-heading_small slds-m-bottom_small">
+          Add New Expense
+        </h3>
+        <lightning-input
+          label="Expense Name"
+          value={name}
+          onchange={handleNameChange}
+          class="slds-m-bottom_small"
+        ></lightning-input>
+        <lightning-input
+          label="Amount"
+          type="number"
+          formatter="currency"
+          step="0.01"
+          value={amount}
+          onchange={handleAmountChange}
+          class="slds-m-bottom_small"
+        ></lightning-input>
+        <lightning-input
+          label="Date"
+          type="date"
+          value={expenseDate}
+          onchange={handleDateChange}
+          class="slds-m-bottom_small"
+        ></lightning-input>
+        <lightning-combobox
+          label="Category"
+          value={category}
+          placeholder="Select a category"
+          options={categoryOptions}
+          onchange={handleCategoryChange}
+          class="slds-m-bottom_small"
+        ></lightning-combobox>
+        <lightning-button
+          label="Add Expense"
+          variant="brand"
+          onclick={handleAddExpense}
+          disabled={isAddDisabled}
+        ></lightning-button>
+        <template if:true={message}>
+          <div class="slds-m-top_small">
+            <p class={messageClass}>{message}</p>
+          </div>
+        </template>
+      </div>
+    </div>
+  </lightning-card>
+</template>
