@@ -9,11 +9,11 @@ export default class ContactManager extends LightningElement {
   phone = "";
   message = "";
   messageClass = "";
-  contactsWiredResult;
+  contacts;
 
   @wire(getContacts)
-  contacts(result) {
-    this.contactsWiredResult = result;
+  wiredContacts(result) {
+    this.contacts = result;
   }
 
   handleNameChange(event) {
@@ -44,7 +44,7 @@ export default class ContactManager extends LightningElement {
         this.name = "";
         this.email = "";
         this.phone = "";
-        return refreshApex(this.contactsWiredResult);
+        return refreshApex(this.contacts);
       })
       .catch((error) => {
         this.message = "Error adding contact: " + error.body.message;
