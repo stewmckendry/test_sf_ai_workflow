@@ -1,0 +1,93 @@
+<template>
+  <lightning-card title="Contact Manager" icon-name="standard:contact">
+    <div class="slds-m-around_medium">
+      <!-- Contact List Table -->
+      <div class="slds-m-bottom_medium">
+        <h3 class="slds-text-heading_small slds-m-bottom_small">
+          Existing Contacts
+        </h3>
+        <template if:true={contacts.data}>
+          <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+            <thead>
+              <tr class="slds-line-height_reset">
+                <th scope="col">
+                  <div class="slds-truncate" title="Name">Name</div>
+                </th>
+                <th scope="col">
+                  <div class="slds-truncate" title="Email">Email</div>
+                </th>
+                <th scope="col">
+                  <div class="slds-truncate" title="Phone">Phone</div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <template for:each={contacts.data} for:item="contact">
+                <tr key={contact.Id} class="slds-hint-parent">
+                  <td data-label="Name">
+                    <div class="slds-truncate" title={contact.Name}>
+                      {contact.Name}
+                    </div>
+                  </td>
+                  <td data-label="Email">
+                    <div class="slds-truncate" title={contact.Email}>
+                      {contact.Email}
+                    </div>
+                  </td>
+                  <td data-label="Phone">
+                    <div class="slds-truncate" title={contact.Phone}>
+                      {contact.Phone}
+                    </div>
+                  </td>
+                </tr>
+              </template>
+            </tbody>
+          </table>
+        </template>
+        <template if:true={contacts.error}>
+          <p class="slds-text-color_error">
+            Error loading contacts: {contacts.error}
+          </p>
+        </template>
+      </div>
+
+      <!-- Add Contact Form -->
+      <div class="slds-box slds-theme_shade">
+        <h3 class="slds-text-heading_small slds-m-bottom_small">
+          Add New Contact
+        </h3>
+        <lightning-input
+          label="Name"
+          value={name}
+          onchange={handleNameChange}
+          class="slds-m-bottom_small"
+        ></lightning-input>
+        <lightning-input
+          label="Email"
+          type="email"
+          value={email}
+          onchange={handleEmailChange}
+          class="slds-m-bottom_small"
+        ></lightning-input>
+        <lightning-input
+          label="Phone"
+          type="tel"
+          value={phone}
+          onchange={handlePhoneChange}
+          class="slds-m-bottom_small"
+        ></lightning-input>
+        <lightning-button
+          label="Add Contact"
+          variant="brand"
+          onclick={handleAddContact}
+          disabled={isAddDisabled}
+        ></lightning-button>
+        <template if:true={message}>
+          <div class="slds-m-top_small">
+            <p class={messageClass}>{message}</p>
+          </div>
+        </template>
+      </div>
+    </div>
+  </lightning-card>
+</template>
