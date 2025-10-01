@@ -1,0 +1,72 @@
+{
+    "fileVersion": 0,
+    "serverMaxRevisionCounter": 13,
+    "sourceMembers": {
+        "Profile__Admin": {
+            "memberType": "Profile",
+            "serverRevisionCounter": 2,
+            "lastRetrievedFromServer": null,
+            "isNameObsolete": false
+        },
+        "ApexClass__HelloWorld": {
+            "memberType": "ApexClass",
+            "serverRevisionCounter": 3,
+            "lastRetrievedFromServer": null,
+            "isNameObsolete": false
+        },
+        "ApexClass__HelloWorldTest": {
+            "memberType": "ApexClass",
+            "serverRevisionCounter": 4,
+            "lastRetrievedFromServer": null,
+            "isNameObsolete": false
+        },
+        "LightningComponentBundle__helloWorld": {
+            "memberType": "LightningComponentBundle",
+            "serverRevisionCounter": 5,
+            "lastRetrievedFromServer": null,
+            "isNameObsolete": false
+        },
+        "LightningComponentResource__helloWorld/helloWorld.js-meta.xml": {
+            "memberType": "LightningComponentResource",
+            "serverRevisionCounter": 6,
+            "lastRetrievedFromServer": null,
+            "isNameObsolete": false
+        },
+        "LightningComponentResource__helloWorld/helloWorld.html": {
+            "memberType": "LightningComponentResource",
+            "serverRevisionCounter": 7,
+            "lastRetrievedFromServer": null,
+            "isNameObsolete": false
+        },
+        "LightningComponentResource__helloWorld/helloWorld.js": {
+            "memberType": "LightningComponentResource",
+            "serverRevisionCounter": 8,
+            "lastRetrievedFromServer": null,
+            "isNameObsolete": false
+        },
+        "FlexiPage__Hello_World_App": {
+            "memberType": "FlexiPage",
+            "serverRevisionCounter": 9,
+            "lastRetrievedFromServer": null,
+            "isNameObsolete": false
+        },
+        "CustomTab__Hello_World_App": {
+            "memberType": "CustomTab",
+            "serverRevisionCounter": 12,
+            "lastRetrievedFromServer": null,
+            "isNameObsolete": false
+        },
+        "CustomApplication__Hello_World": {
+            "memberType": "CustomApplication",
+            "serverRevisionCounter": 11,
+            "lastRetrievedFromServer": null,
+            "isNameObsolete": false
+        },
+        "PermissionSet__Hello_World_Access": {
+            "memberType": "PermissionSet",
+            "serverRevisionCounter": 13,
+            "lastRetrievedFromServer": null,
+            "isNameObsolete": false
+        }
+    }
+}

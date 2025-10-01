@@ -1,0 +1,12 @@
+{
+  "packageDirectories": [
+    {
+      "path": "my-sf-app/force-app",
+      "default": true
+    }
+  ],
+  "name": "test_sf_ai_workflow",
+  "namespace": "",
+  "sfdcLoginUrl": "https://login.salesforce.com",
+  "sourceApiVersion": "64.0"
+}
