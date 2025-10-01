@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<CustomTab xmlns="http://soap.sforce.com/2006/04/metadata">
+    <flexiPage>Hello_World_App</flexiPage>
+    <label>Hello World App</label>
+    <motif>Custom14: Gears</motif>
+</CustomTab>
